@@ -1,0 +1,8 @@
+name            'h0tbird-puppet'
+version         '0.0.1'
+source          'https://github.com/h0tbird/puppet-puppet'
+author          'Marc Villacorta'
+license         'GPL'
+summary         'Puppet Module'
+description     'Manages the Puppet service.'
+project_page    'https://github.com/h0tbird/puppet-puppet'
