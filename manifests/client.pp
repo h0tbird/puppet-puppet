@@ -1,10 +1,10 @@
 #------------------------------------------------------------------------------
-# Class: puppet
+# Class: puppet::client
 #
-#   This module manages the puppet service.
+#   This module manages the puppet client service.
 #
 #   Marc Villacorta <marc.villacorta@gmail.com>
-#   2011-10-12
+#   2012-07-17
 #
 #   Tested platforms:
 #       - CentOS 6
@@ -16,25 +16,25 @@
 #
 #   Actions:
 #
-#       Installs, configures and manages the puppet service.
+#       Installs, configures and manages the puppet client service.
 #
 #   Sample Usage:
 #
-#       include puppet
+#       include puppet::client
 #
 #       or
 #
-#       class { 'puppet': }
+#       class { 'puppet::client': }
 #
 #       or
 #
-#       class { 'puppet':
+#       class { 'puppet::client':
 #           ensure  => running,
 #           version => present,
 #       }
 #
 #------------------------------------------------------------------------------
-class puppet (
+class puppet::client (
 
     $ensure  = running,
     $version = present
@@ -49,10 +49,10 @@ class puppet (
     if defined(Class['motd']) { motd::register { $module_name: } }
 
     # Set the requirements:
-    anchor { "${module_name}::begin":   } ->
-    class  { "${module_name}::params":  } ->
-    class  { "${module_name}::install": } ->
-    class  { "${module_name}::config":  } ~>
-    class  { "${module_name}::service": } ->
-    anchor { "${module_name}::end":     }
+    anchor { "${module_name}::client::begin":   } ->
+    class  { "${module_name}::client::params":  } ->
+    class  { "${module_name}::client::install": } ->
+    class  { "${module_name}::client::config":  } ~>
+    class  { "${module_name}::client::service": } ->
+    anchor { "${module_name}::client::end":     }
 }

@@ -1,15 +1,15 @@
 #------------------------------------------------------------------------------
-# Class: puppet::params
+# Class: puppet::client::params
 #
 #   This class is part of the puppet module.
 #   You should not be calling this class.
-#   The delegated class is Class['puppet'].
+#   The delegated class is Class['puppet::client'].
 #
 #   Marc Villacorta <marc.villacorta@gmail.com>
-#   2011-10-12
+#   2012-07-17
 #
 #------------------------------------------------------------------------------
-class puppet::params {
+class puppet::client::params {
 
     # Set location for files and templates:
     $files     = "puppet:///modules/${module_name}/${operatingsystem}"
@@ -24,6 +24,6 @@ class puppet::params {
             $services = ['puppet']
         }
 
-        default: { fail("${module_name}::params ${osfamily} family is not supported yet.") }
+        default: { fail("${module_name}::client::params ${osfamily} family is not supported yet.") }
     }
 }
