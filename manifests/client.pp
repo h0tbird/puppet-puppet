@@ -36,8 +36,8 @@
 #------------------------------------------------------------------------------
 class puppet::client (
 
-    $ensure  = running,
-    $version = present
+    $ensure  = undef,
+    $version = undef,
 
 ) {
 
